@@ -1,4 +1,4 @@
-# Projeto E-commerce
+# E-commerce Gajdeczka Store PHP7
 
 <h1>Projeto</h1>
 Projeto desenvolvido do zero no Curso de PHP 7, disponível na plataforma da Udemy e no site da HTML5dev.com.br
