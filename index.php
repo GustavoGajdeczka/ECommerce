@@ -123,7 +123,7 @@ $app->post("/admin/users/create", function () {
 	exit;
 
 });
-// ## Posto de edição de usuarios
+// ## POST de edição de usuarios
 $app->post("/admin/users/:iduser", function($iduser) {
 	User::verifyLogin();
 
@@ -154,6 +154,30 @@ $app->get("/admin/forgot", function (){
 
 $app->post("/admin/forgot", function(){
 	$user = User::getForgot($_POST["email"]);
+
+	header("Location: /admin/forgot/sent");
+	exit;
+});
+
+
+// Rota para envio do codigo de recuperação de senha
+$app->get("/admin/forgot/sent", function(){
+	$page = new PageAdmin([
+		"header"=>false,
+		"footer"=>false
+	]);
+
+	$page->setTpl("forgot-sent");
+});
+
+// Rota para recuperação de senha
+$app->get("/admin/forgot/reset", function(){
+	$page = new PageAdmin([
+		"header"=>false,
+		"footer"=>false
+	]);
+
+	$page->setTpl("forgot-reset");
 });
 
 // ## Execução do SITE
